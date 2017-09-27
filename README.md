@@ -73,3 +73,4 @@ sudo ./kflashtool b
 ```
 You'll find the rkflashtool here: https://github.com/neo-technologies/rkflashtool
 
+# gpiomem_tinkerboard
