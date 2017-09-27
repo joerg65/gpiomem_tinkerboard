@@ -1,4 +1,4 @@
-# gpiomem driver TinkerBoard
+# gpiomem_tinkerboard
 
 To compile the driver, the source code need to be integrated to the kernel source into the folder:
 
@@ -47,30 +47,31 @@ index f148577..a519a4a 100755
                 #address-cells = <1>;
 ```
 
-<br>
 To compile the Android kernel you need a toolchain, I used the toolchain(x86_64) from radxa.com: http://dl.radxa.com/rock/source/x86_64_arm-eabi-4.6.zip
-<br>
-Clone or download the kernel source from https://github.com/TinkerBoard/android_kernel.
+
+Clone or download the kernel source from: https://github.com/TinkerBoard/android_kernel
+
 ```
 cd android_kernel
 export ARCH=arm
 export CROSS_COMPILE=/path/to/your/toolchain/arm-eabi-4.6/bin/arm-eabi-
 make rockchip_defconfig
 make rk3288-miniarm.img
-
 ```
+
 After successful compilation, you will get kernel.img and resource.img that you'll need to flash to the TinkerBoard.
+
 ```
 #backup original kernel and resource
 sudo ./rkflashtool r kernel >kernel-org.img
+sudo ./rkflashtool r resource >resource-org.img
 
 #flash new kernel and resource
-sudo ./rkflashtool w resource <resource.img
 sudo ./kflashtool w kernel <kernel.img
+sudo ./rkflashtool w resource <resource.img
 
 #reboot the TinkerBoard
 sudo ./kflashtool b
 ```
-You'll find the rkflashtool here: https://github.com/neo-technologies/rkflashtool
 
-# gpiomem_tinkerboard
+You'll find the rkflashtool here: https://github.com/neo-technologies/rkflashtool
