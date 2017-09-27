@@ -5,7 +5,7 @@ To compile the driver, the source code need to be integrated to the kernel sourc
 ```
 drivers/char
 ```
-Next this patches need to be implemented:
+Next, this patches need to be implemented:
 ```
 diff --git a/drivers/char/Makefile b/drivers/char/Makefile
 index e0047ed..54e0608 100644
@@ -47,7 +47,7 @@ index f148577..a519a4a 100755
                 #address-cells = <1>;
 ```
 
-To compile the Android kernel you need a toolchain, I used the toolchain(x86_64) from radxa.com: http://dl.radxa.com/rock/source/x86_64_arm-eabi-4.6.zip
+To compile the Android kernel, you need a toolchain. I used the toolchain(x86_64) from radxa.com: http://dl.radxa.com/rock/source/x86_64_arm-eabi-4.6.zip
 
 Clone or download the kernel source from: https://github.com/TinkerBoard/android_kernel
 
@@ -74,4 +74,4 @@ sudo ./rkflashtool w resource <resource.img
 sudo ./kflashtool b
 ```
 
-You'll find the rkflashtool here: https://github.com/neo-technologies/rkflashtool
+You will find the rkflashtool here: https://github.com/neo-technologies/rkflashtool
