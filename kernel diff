@@ -1,0 +1,39 @@
+diff --git a/drivers/char/Makefile b/drivers/char/Makefile
+index e0047ed..54e0608 100644
+--- a/drivers/char/Makefile
++++ b/drivers/char/Makefile
+@@ -63,3 +63,6 @@ obj-$(CONFIG_JS_RTC)          += js-rtc.o
+ js-rtc-y = rtc.o
+ 
+ obj-$(CONFIG_TILE_SROM)                += tile-srom.o
++
++obj-$(CONFIG_ARCH_ROCKCHIP) += rk3288-gpiomem.o
+
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.txt b/Documentation/devicetree/bindings/vendor-prefixes.txt
+index 548c794..e958ebe 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.txt
++++ b/Documentation/devicetree/bindings/vendor-prefixes.txt
+@@ -65,3 +65,4 @@ wlf   Wolfson Microelectronics
+ wm     Wondermedia Technologies, Inc.
+ winbond Winbond Electronics corp.
+ xlnx   Xilinx
++rk3288-gpiomem
+
+diff --git a/arch/arm/boot/dts/rk3288.dtsi b/arch/arm/boot/dts/rk3288.dtsi
+index f148577..a519a4a 100755
+--- a/arch/arm/boot/dts/rk3288.dtsi
++++ b/arch/arm/boot/dts/rk3288.dtsi
+@@ -86,6 +86,12 @@
+                             <GIC_SPI 154 IRQ_TYPE_LEVEL_HIGH>;
+        };
+ 
++       rk3288-gpiomem {
++               compatible = "rockchip,rk3288-gpiomem";
++               reg = <0xff750000 0x1000>;
++               status = "okay";
++       };
++
+        cpu_axi_bus: cpu_axi_bus {
+                compatible = "rockchip,cpu_axi_bus";
+                #address-cells = <1>;
+
